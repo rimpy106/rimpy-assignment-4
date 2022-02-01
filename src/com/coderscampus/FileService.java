@@ -13,7 +13,7 @@ import java.util.Arrays;
 
 public class FileService {
 	private static final String COMMA_DELIMITER = ",";
-	private static final String fileHeader="Student ID,Student Name, Course,Grade \n";
+	private static final String fileHeader = "Student ID,Student Name, Course,Grade \n";
 
 	public Student[] readStudentsFromFile(String file) throws IOException {
 		BufferedReader filereader = null;
@@ -44,9 +44,7 @@ public class FileService {
 		try {
 			for (int i = 1; i < students.length; i++) {
 				if (students[i] != null) {
-					//int grade=Integer.parseInt(students[i].getGrade());
 					if (students[i].getCourse().contains("COMPSCI")) {
-						// System.out.println(students[i].toString());
 						filewriter1.write(students[i].getStudent_id());
 						filewriter1.write(COMMA_DELIMITER);
 						filewriter1.write(students[i].getStudent_name());
@@ -55,7 +53,6 @@ public class FileService {
 						filewriter1.write(COMMA_DELIMITER);
 						filewriter1.write(students[i].getGrade());
 						filewriter1.write("\n");
-						//Arrays.sort(grade);
 					} else if (students[i].getCourse().contains("APMTH")) {
 						filewriter2.write(students[i].getStudent_id());
 						filewriter2.write(COMMA_DELIMITER);
@@ -75,7 +72,6 @@ public class FileService {
 						filewriter3.write(students[i].getGrade());
 						filewriter3.write("\n");
 					}
-
 				}
 			}
 		} finally {
@@ -87,7 +83,4 @@ public class FileService {
 				filewriter3.close();
 		}
 	}
-	
-	
-
 }
