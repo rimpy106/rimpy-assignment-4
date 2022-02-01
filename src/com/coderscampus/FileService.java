@@ -12,6 +12,7 @@ import java.io.ObjectOutputStream;
 
 public class FileService {
 	private static final String COMMA_DELIMITER = ",";
+
 	public Student[] readStudentsFromFile(String file) {
 		BufferedReader filereader = null;
 		Student[] students = new Student[101];
@@ -32,43 +33,45 @@ public class FileService {
 		return students;
 
 	}
-	
+
 	public void writeStudentstoFile(Student[] students) throws IOException {
-		BufferedWriter filewriter=null;
-		for(int i=0;i<students.length;i++) {
-			if(students[i].getCourse().contains("COMPSCI")) {
-				//System.out.println(students[i].toString());
-				filewriter=new BufferedWriter(new FileWriter("course1.csv"));
-				filewriter.write(students[i].getStudent_id());
-				filewriter.write(COMMA_DELIMITER);
-				filewriter.write(students[i].getStudent_name());
-				filewriter.write(COMMA_DELIMITER);
-				filewriter.write(students[i].getCourse());
-				filewriter.write(COMMA_DELIMITER);
-				filewriter.write(students[i].getGrade());
-				filewriter.write("\n");
-			}else if(students[i].getCourse().contains("APMTH")) {
-				filewriter=new BufferedWriter(new FileWriter("course2.csv"));
-				filewriter.write(students[i].getStudent_id());
-				filewriter.write(COMMA_DELIMITER);
-				filewriter.write(students[i].getStudent_name());
-				filewriter.write(COMMA_DELIMITER);
-				filewriter.write(students[i].getCourse());
-				filewriter.write(COMMA_DELIMITER);
-				filewriter.write(students[i].getGrade());
-				filewriter.write("\n");
-			}else if(students[i].getCourse().contains("STAT")) {
-				filewriter=new BufferedWriter(new FileWriter("course3.csv"));
-				filewriter.write(students[i].getStudent_id());
-				filewriter.write(COMMA_DELIMITER);
-				filewriter.write(students[i].getStudent_name());
-				filewriter.write(COMMA_DELIMITER);
-				filewriter.write(students[i].getCourse());
-				filewriter.write(COMMA_DELIMITER);
-				filewriter.write(students[i].getGrade());
-				filewriter.write("\n");
+		BufferedWriter filewriter = null;
+		for (int i = 1; i < students.length; i++) {
+			if (students[i] != null) {
+				if (students[i].getCourse().contains("COMPSCI")) {
+					// System.out.println(students[i].toString());
+					filewriter = new BufferedWriter(new FileWriter("course1.csv"));
+					filewriter.write(students[i].getStudent_id());
+					filewriter.write(COMMA_DELIMITER);
+					filewriter.write(students[i].getStudent_name());
+					filewriter.write(COMMA_DELIMITER);
+					filewriter.write(students[i].getCourse());
+					filewriter.write(COMMA_DELIMITER);
+					filewriter.write(students[i].getGrade());
+					filewriter.write("\n");
+				} else if (students[i].getCourse().contains("APMTH")) {
+					filewriter = new BufferedWriter(new FileWriter("course2.csv"));
+					filewriter.write(students[i].getStudent_id());
+					filewriter.write(COMMA_DELIMITER);
+					filewriter.write(students[i].getStudent_name());
+					filewriter.write(COMMA_DELIMITER);
+					filewriter.write(students[i].getCourse());
+					filewriter.write(COMMA_DELIMITER);
+					filewriter.write(students[i].getGrade());
+					filewriter.write("\n");
+				} else if (students[i].getCourse().contains("STAT")) {
+					filewriter = new BufferedWriter(new FileWriter("course3.csv"));
+					filewriter.write(students[i].getStudent_id());
+					filewriter.write(COMMA_DELIMITER);
+					filewriter.write(students[i].getStudent_name());
+					filewriter.write(COMMA_DELIMITER);
+					filewriter.write(students[i].getCourse());
+					filewriter.write(COMMA_DELIMITER);
+					filewriter.write(students[i].getGrade());
+					filewriter.write("\n");
+				}
+
 			}
-			
 		}
 	}
 

@@ -9,10 +9,15 @@ public class Assignment4Application {
 		FileService fileservice = new FileService();
 		students=fileservice.readStudentsFromFile("student-master-list.csv");
 		
+		
 		/*
 		 * for(int i=1;i<students.length;i++) {
-		 * System.out.println(students[i].toString()); }
+		 * System.out.print(students[i].getStudent_id());
+		 * System.out.print(students[i].getStudent_name());
+		 * System.out.print(students[i].getCourse());
+		 * System.out.print(students[i].getGrade()); System.out.println(); }
 		 */
+		 
 		fileservice.writeStudentstoFile(students);
 	}
 
