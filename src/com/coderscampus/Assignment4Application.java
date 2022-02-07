@@ -18,6 +18,27 @@ public class Assignment4Application {
 			}
 		});
 
-		fileservice.writeStudentstoFile(students);
+		//fileservice.writeStudentstoFile(students);
+		Student[] csStudents=new Student[100];
+		Student[] apStudents=new Student[100];
+		Student[] statsStudents=new Student[100];
+		int csCtr=0, apCtr=0,statCtr=0;
+		
+		for (int i = 0; i < students.length; i++) {
+				if (students[i].getCourse().contains("COMPSCI")) {
+					csStudents[csCtr]=students[i];
+					csCtr++;
+				}else if (students[i].getCourse().contains("APMTH")) {
+					apStudents[apCtr]=students[i];
+					apCtr++;
+				}else if (students[i].getCourse().contains("STAT")) {
+					statsStudents[statCtr]=students[i];
+					statCtr++;
+				}
+		}
+		fileservice.writeStudentstoFile(csStudents,"course1-CompSci.csv");
+		fileservice.writeStudentstoFile(apStudents,"course2-APMath.csv");
+		fileservice.writeStudentstoFile(statsStudents,"course3-Stat.csv");
+				
 	}
 }
