@@ -34,6 +34,27 @@ public class FileService {
 		return students;
 	}
 
+	public void writeStudentstoFile(Student[] students, String filename) throws IOException {
+		BufferedWriter filewriter = new BufferedWriter(new FileWriter(filename));
+		filewriter.write(fileHeader);
+		try {
+			for (int i = 1; i < students.length; i++) {
+				if (students[i] != null) {
+					filewriter.write(students[i].getStudent_id());
+					filewriter.write(COMMA_DELIMITER);
+					filewriter.write(students[i].getStudent_name());
+					filewriter.write(COMMA_DELIMITER);
+					filewriter.write(students[i].getCourse());
+					filewriter.write(COMMA_DELIMITER);
+					filewriter.write(students[i].getGrade());
+					filewriter.write("\n");
+				}
+			}
+		} finally {
+			filewriter.close();
+		}
+	}
+
 	public void writeStudentstoFile(Student[] students) throws IOException {
 		BufferedWriter filewriter1 = new BufferedWriter(new FileWriter("course1.csv"));
 		filewriter1.write(fileHeader);
