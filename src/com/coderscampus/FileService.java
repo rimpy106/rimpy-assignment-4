@@ -34,53 +34,60 @@ public class FileService {
 		return students;
 	}
 
-	public void writeStudentstoFile(Student[] students) throws IOException {
-		BufferedWriter filewriter1 = new BufferedWriter(new FileWriter("course1.csv"));
-		filewriter1.write(fileHeader);
-		BufferedWriter filewriter2 = new BufferedWriter(new FileWriter("course2.csv"));
-		filewriter2.write(fileHeader);
-		BufferedWriter filewriter3 = new BufferedWriter(new FileWriter("course3.csv"));
-		filewriter3.write(fileHeader);
+	public void writeStudentstoFile(Student[] students, String filename) throws IOException {
+		BufferedWriter filewriter = new BufferedWriter(new FileWriter(filename));
+		filewriter.write(fileHeader);
 		try {
 			for (int i = 1; i < students.length; i++) {
 				if (students[i] != null) {
-					if (students[i].getCourse().contains("COMPSCI")) {
-						filewriter1.write(students[i].getStudent_id());
-						filewriter1.write(COMMA_DELIMITER);
-						filewriter1.write(students[i].getStudent_name());
-						filewriter1.write(COMMA_DELIMITER);
-						filewriter1.write(students[i].getCourse());
-						filewriter1.write(COMMA_DELIMITER);
-						filewriter1.write(students[i].getGrade());
-						filewriter1.write("\n");
-					} else if (students[i].getCourse().contains("APMTH")) {
-						filewriter2.write(students[i].getStudent_id());
-						filewriter2.write(COMMA_DELIMITER);
-						filewriter2.write(students[i].getStudent_name());
-						filewriter2.write(COMMA_DELIMITER);
-						filewriter2.write(students[i].getCourse());
-						filewriter2.write(COMMA_DELIMITER);
-						filewriter2.write(students[i].getGrade());
-						filewriter2.write("\n");
-					} else if (students[i].getCourse().contains("STAT")) {
-						filewriter3.write(students[i].getStudent_id());
-						filewriter3.write(COMMA_DELIMITER);
-						filewriter3.write(students[i].getStudent_name());
-						filewriter3.write(COMMA_DELIMITER);
-						filewriter3.write(students[i].getCourse());
-						filewriter3.write(COMMA_DELIMITER);
-						filewriter3.write(students[i].getGrade());
-						filewriter3.write("\n");
-					}
+					filewriter.write(students[i].getStudent_id());
+					filewriter.write(COMMA_DELIMITER);
+					filewriter.write(students[i].getStudent_name());
+					filewriter.write(COMMA_DELIMITER);
+					filewriter.write(students[i].getCourse());
+					filewriter.write(COMMA_DELIMITER);
+					filewriter.write(students[i].getGrade());
+					filewriter.write("\n");
 				}
 			}
 		} finally {
-			if (filewriter1 != null)
-				filewriter1.close();
-			if (filewriter2 != null)
-				filewriter2.close();
-			if (filewriter3 != null)
-				filewriter3.close();
+			filewriter.close();
 		}
 	}
+
+	/*
+	 * public void writeStudentstoFile(Student[] students) throws IOException {
+	 * BufferedWriter filewriter1 = new BufferedWriter(new
+	 * FileWriter("course1.csv")); filewriter1.write(fileHeader); BufferedWriter
+	 * filewriter2 = new BufferedWriter(new FileWriter("course2.csv"));
+	 * filewriter2.write(fileHeader); BufferedWriter filewriter3 = new
+	 * BufferedWriter(new FileWriter("course3.csv")); filewriter3.write(fileHeader);
+	 * try { for (int i = 1; i < students.length; i++) { if (students[i] != null) {
+	 * if (students[i].getCourse().contains("COMPSCI")) {
+	 * filewriter1.write(students[i].getStudent_id());
+	 * filewriter1.write(COMMA_DELIMITER);
+	 * filewriter1.write(students[i].getStudent_name());
+	 * filewriter1.write(COMMA_DELIMITER);
+	 * filewriter1.write(students[i].getCourse());
+	 * filewriter1.write(COMMA_DELIMITER);
+	 * filewriter1.write(students[i].getGrade()); filewriter1.write("\n"); } else if
+	 * (students[i].getCourse().contains("APMTH")) {
+	 * filewriter2.write(students[i].getStudent_id());
+	 * filewriter2.write(COMMA_DELIMITER);
+	 * filewriter2.write(students[i].getStudent_name());
+	 * filewriter2.write(COMMA_DELIMITER);
+	 * filewriter2.write(students[i].getCourse());
+	 * filewriter2.write(COMMA_DELIMITER);
+	 * filewriter2.write(students[i].getGrade()); filewriter2.write("\n"); } else if
+	 * (students[i].getCourse().contains("STAT")) {
+	 * filewriter3.write(students[i].getStudent_id());
+	 * filewriter3.write(COMMA_DELIMITER);
+	 * filewriter3.write(students[i].getStudent_name());
+	 * filewriter3.write(COMMA_DELIMITER);
+	 * filewriter3.write(students[i].getCourse());
+	 * filewriter3.write(COMMA_DELIMITER);
+	 * filewriter3.write(students[i].getGrade()); filewriter3.write("\n"); } } } }
+	 * finally { if (filewriter1 != null) filewriter1.close(); if (filewriter2 !=
+	 * null) filewriter2.close(); if (filewriter3 != null) filewriter3.close(); } }
+	 */
 }
