@@ -1,33 +1,33 @@
 package com.coderscampus;
 
 public class Student {
-	private String student_id;
-	private String student_name;
+	private String studentId;
+	private String studentName;
 	private String course;
 	private String grade;
 
 	public Student(String student_id, String student_name, String course, String grade) {
 		super();
-		this.student_id = student_id;
-		this.student_name = student_name;
+		this.studentId = student_id;
+		this.studentName = student_name;
 		this.course = course;
 		this.grade = grade;
 	}
 
 	public String getStudent_id() {
-		return student_id;
+		return studentId;
 	}
 
 	public void setStudent_id(String student_id) {
-		this.student_id = student_id;
+		this.studentId = student_id;
 	}
 
 	public String getStudent_name() {
-		return student_name;
+		return studentName;
 	}
 
 	public void setStudent_name(String student_name) {
-		this.student_name = student_name;
+		this.studentName = student_name;
 	}
 
 	public String getCourse() {
@@ -48,7 +48,7 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return student_id + ","+ student_name+ ","+ course+ ","+ grade+ ",";
+		return studentId + ","+ studentName+ ","+ course+ ","+ grade+ ",";
 	}
 
 }

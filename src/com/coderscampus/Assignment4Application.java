@@ -38,5 +38,8 @@ public class Assignment4Application {
 		}
 		fileservice.writeStudentstoFile(csStudents,"course1-CompSci.csv");
 		fileservice.writeStudentstoFile(apStudents,"course2-APMath.csv");
+        fileservice.writeStudentstoFile(statsStudents,"course3-Stat.csv");
+				
+
 	}
 }
